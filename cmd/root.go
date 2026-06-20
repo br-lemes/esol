@@ -5,7 +5,6 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/br-lemes/esol/internal/version"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -16,10 +15,10 @@ var rootCmd = &cobra.Command{
 	Use: "esol",
 	Short: "A CLI tool to analyze and generate statistics for your " +
 		"Exercism solutions.",
-	Version: version.GetVersion(),
 }
 
-func Execute() error {
+func Execute(version string) error {
+	rootCmd.Version = version
 	return rootCmd.Execute()
 }
 
